@@ -109,9 +109,14 @@ def main():
         cleaned_content = remove_empty_row(file_content)
         cleaned_content = remove_empty_source(cleaned_content)
 
-        # 將整理後的內容寫回檔案
-        with open(output_file_path, 'w', encoding='utf-8') as file:
-            file.write(cleaned_content)
+        # 只有在 cleaned_content 不是空白時才寫入檔案
+        if cleaned_content.strip():  # 如果去除兩側空白後仍有字元剩餘
+            # 將整理後的內容寫回檔案
+            with open(output_file_path, 'w', encoding='utf-8') as file:
+                file.write(cleaned_content)
+        else:
+            # 如果 cleaned_content 是空白，則刪除檔案
+            os.remove(output_file_path)
 
 
 if __name__ == "__main__":
