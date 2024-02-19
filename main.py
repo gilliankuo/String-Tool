@@ -4,7 +4,7 @@ import openpyxl
 import re
 
 app_key_identifier = "App key"
-language_identifiers = ["zh_TW", "JA", "EN", "TH"]
+language_identifiers = ["zh_TW", "JA", "EN", "TH", "zh_HK", "zh_CN"]
 
 variable_identifier = "App variable"
 valid_variable = {"%@", "%d"}
