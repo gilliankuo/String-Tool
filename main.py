@@ -54,7 +54,7 @@ def find_target_column(sheet, target):
     header_row = sheet[1]
 
     for cell in header_row:
-        if cell.value and cell.value.startswith(target):
+        if cell.value and cell.value.lower().startswith(target.lower()):
             return cell.column - 1
 
     return -1
