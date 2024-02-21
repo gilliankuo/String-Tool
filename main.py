@@ -94,6 +94,11 @@ def main():
             for sheet_name in workbook.sheetnames:
                 sheet = workbook[sheet_name]
                 key_column = find_target_column(sheet, app_key_identifier)
+                if key_column == -1:
+                    print(f"\033[91mError: 'App key' column not found in sheet: {sheet_name}. Please check the column name.\033[0m")
+                    os.remove(output_file_path)
+                    sys.exit(1)
+
                 target_column = find_target_column(sheet, language)
                 if target_column == -1:
                     break
